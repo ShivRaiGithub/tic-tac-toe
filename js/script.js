@@ -5,6 +5,8 @@ const soundButton = document.getElementById("soundButton");
 
 let currentPlayer = "X";
 let gameIsOver = false;
+currentPlayerDisplay.classList.add("x");
+
 
 //sound-effects"
 const backgroundSound = new Audio("sounds/background.wav");
@@ -51,7 +53,9 @@ function handleCellClick(event) {
       resultElement.textContent = "It's a draw!";
       gameIsOver = true;
     } else {
+      currentPlayerDisplay.classList.remove(currentPlayer.toLowerCase());
       currentPlayer = currentPlayer === "X" ? "O" : "X";
+      currentPlayerDisplay.classList.add(currentPlayer.toLowerCase());
       updateCurrentPlayerDisplay(); // Update display after each turn
     }
   }
